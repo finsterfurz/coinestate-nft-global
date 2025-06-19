@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="CoinEstateNFT Global - Cayman-based NFT real estate platform using NFTs as transferable access keys to individual real estate dashboards" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="CoinEstate NFT - Real Estate Governance Platform" />
+    <meta property="og:description" content="Access premium real estate projects through KYC-verified NFT governance credentials. Cayman Islands regulated platform." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://coinestate.foundation" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CoinEstate NFT - Real Estate Governance Platform" />
+    <meta name="twitter:description" content="Access premium real estate projects through KYC-verified NFT governance credentials." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="keywords" content="NFT, real estate, blockchain, governance, KYC, Cayman Islands, property investment, dashboard access" />
+    <meta name="author" content="CoinEstate Foundation" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    
+    <title>CoinEstate NFT - Real Estate Governance Platform</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CoinEstate Foundation",
+      "description": "Cayman-based NFT real estate platform using NFTs as transferable access keys to individual real estate dashboards",
+      "url": "https://coinestate.foundation",
+      "logo": "https://coinestate.foundation/logo.png",
+      "sameAs": [
+        "https://twitter.com/coinestate",
+        "https://linkedin.com/company/coinestate"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-345-XXX-XXXX",
+        "contactType": "customer service",
+        "areaServed": "Global",
+        "availableLanguage": ["English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "George Town",
+        "addressCountry": "Cayman Islands"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>You need to enable JavaScript to run this application.</p>
+        <p>CoinEstate NFT platform requires JavaScript for wallet integration and dashboard functionality.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    
+    <!-- Web3 Detection Script -->
+    <script>
+      // Detect Web3 capability early
+      window.addEventListener('load', function() {
+        if (typeof window.ethereum !== 'undefined') {
+          console.log('Web3 wallet detected');
+          window.web3Available = true;
+        } else {
+          console.log('No Web3 wallet detected');
+          window.web3Available = false;
+        }
+      });
+    </script>
+  </body>
+</html>
