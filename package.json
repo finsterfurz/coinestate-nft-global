@@ -3,14 +3,24 @@
   "version": "1.0.0",
   "description": "CoinEstateNFT Global - Cayman-based NFT real estate platform using NFTs as transferable access keys to individual real estate dashboards",
   "main": "src/index.js",
+  "homepage": "https://coinestate.foundation",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "test:ci": "CI=true react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
-    "format": "prettier --write src/"
+    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "type-check": "tsc --noEmit",
+    "analyze": "npm run build && npx bundle-analyzer build/static/js/*.js",
+    "serve": "serve -s build -l 3000",
+    "deploy": "npm run build && npm run serve",
+    "security-audit": "npm audit && npm audit --audit-level high",
+    "prepare": "husky install"
   },
   "keywords": [
     "nft",
@@ -20,31 +30,112 @@
     "governance",
     "dashboard",
     "kyc",
-    "access-control"
+    "access-control",
+    "web3",
+    "ethereum",
+    "metamask",
+    "defi",
+    "compliance"
   ],
-  "author": "CoinEstate Foundation",
+  "author": {
+    "name": "CoinEstate Foundation",
+    "email": "dev@coinestate.foundation",
+    "url": "https://coinestate.foundation"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finsterfurz/coinestate-nft-global.git"
+  },
+  "bugs": {
+    "url": "https://github.com/finsterfurz/coinestate-nft-global/issues"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "recharts": "^2.8.0",
-    "web-vitals": "^3.4.0"
+    "web-vitals": "^3.4.0",
+    "react-router-dom": "^6.8.0",
+    "react-query": "^3.39.3",
+    "axios": "^1.6.0",
+    "ethers": "^6.8.0",
+    "web3": "^4.2.0",
+    "@metamask/sdk": "^0.14.0",
+    "framer-motion": "^10.16.0",
+    "react-hot-toast": "^2.4.1",
+    "react-helmet-async": "^1.3.0",
+    "react-intersection-observer": "^9.5.2",
+    "lodash": "^4.17.21",
+    "date-fns": "^2.30.0",
+    "clsx": "^2.0.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.1",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/lodash": "^4.14.200",
+    "typescript": "^4.9.5",
     "eslint": "^8.52.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.0.3"
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-import": "^2.29.0",
+    "@babel/eslint-parser": "^7.23.0",
+    "@babel/preset-react": "^7.22.0",
+    "prettier": "^3.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.0",
+    "serve": "^14.2.0",
+    "source-map-explorer": "^2.5.3",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "workbox-cli": "^7.0.0",
+    "msw": "^1.3.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss,sass}": [
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.js",
+      "!src/reportWebVitals.js",
+      "!src/**/*.stories.{js,jsx,ts,tsx}",
+      "!src/**/*.test.{js,jsx,ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
   },
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "not ie <= 11"
     ],
     "development": [
       "last 1 chrome version",
@@ -55,5 +146,6 @@
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
-  }
+  },
+  "packageManager": "npm@8.19.0"
 }
